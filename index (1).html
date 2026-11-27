@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dj MakY | Joy Ambassador</title>
+<meta name="description" content="Dj MakY, a Cabo Verdean DJ in Eindhoven playing Afrohouse, Afro and Amapiano">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#12110f;--bg:#161513;--card:#1c1a18;--raised:#262421;
+  --line:rgba(239,233,222,.08);
+  --text:#efe9de;--text-2:#aaa398;--muted:#8a847a;
+  --gold:#f2b544;--on-gold:#1a1206;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --sans:"Instrument Sans",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:22px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+/* Header */
+header{position:fixed;inset:0 0 auto;z-index:20;background:linear-gradient(rgba(18,17,15,.88),rgba(18,17,15,0))}
+.bar{height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:17px;font-weight:600}
+nav{display:flex;gap:4px}
+nav a{height:36px;display:flex;align-items:center;padding:0 12px;border-radius:8px;color:var(--text-2);font-weight:500;transition:color 160ms var(--ease),background-color 160ms var(--ease)}
+nav a:hover{color:var(--text);background:var(--line)}
+.menu-btn{display:none;height:36px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:var(--raised);color:var(--text);font:500 14px var(--sans);cursor:pointer}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--deep) url('caver10.JPG') center bottom/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(22,21,19,.92) 0%,rgba(22,21,19,.6) 45%,rgba(22,21,19,.15) 75%),
+  linear-gradient(180deg,rgba(22,21,19,0) 55%,var(--bg) 100%)}
+.hero .wrap{position:relative;width:100%;padding-bottom:96px}
+.hero-text{max-width:560px;animation:rise 480ms var(--ease) both}
+.kicker{font-family:var(--mono);font-size:12px;line-height:16px;color:var(--text-2)}
+.hero h1{font-size:clamp(56px,9vw,112px);line-height:1.02;font-weight:500;letter-spacing:-.03em;margin:16px 0 20px}
+.lede em{font-style:normal;color:var(--gold)}
+.lede{font-size:20px;line-height:30px;color:var(--text)}
+.lede span{display:block;color:var(--text-2);font-size:18px;line-height:28px;margin-top:4px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{height:48px;display:inline-flex;align-items:center;gap:8px;padding:0 20px;border-radius:10px;font-weight:500;font-size:15px;transition:background-color 160ms var(--ease),border-color 160ms var(--ease),transform 120ms var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.primary{background:var(--gold);color:var(--on-gold)}
+.btn.primary:hover{background:#f6c564}
+.btn.secondary{background:rgba(38,36,33,.8);border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.btn.secondary:hover{background:var(--raised);border-color:rgba(239,233,222,.16)}
+
+/* Sections */
+section{padding:96px 0}
+section+section{border-top:1px solid var(--line)}
+.label{display:flex;gap:12px;align-items:baseline;margin-bottom:32px}
+.label .no{font-family:var(--mono);font-size:12px;line-height:16px;color:var(--gold)}
+.label h2{font-size:clamp(32px,4vw,40px);line-height:1.15;font-weight:500;letter-spacing:-.02em}
+
+/* About */
+.about{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px}
+.about p{font-size:20px;line-height:32px;max-width:36rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;font-family:var(--mono);font-size:12px;line-height:16px;color:var(--muted)}
+.meta li{list-style:none}
+.meta b{font-weight:400;color:var(--text-2)}
+
+/* Studio */
+.studio{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.studio img{width:100%;height:100%;min-height:360px;object-fit:cover}
+.studio-body{padding:48px;display:flex;flex-direction:column;justify-content:center}
+.studio-body h3{font-size:28px;line-height:1.15;font-weight:500;letter-spacing:-.02em}
+.studio-body p{color:var(--text-2);font-size:18px;line-height:28px;margin-top:12px;max-width:28rem}
+.studio-body .actions{margin-top:24px}
+
+/* Gallery */
+.gallery{columns:3 280px;column-gap:12px}
+.gallery button{display:block;width:100%;margin-bottom:12px;padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;break-inside:avoid}
+.gallery img{width:100%;transition:opacity 160ms var(--ease)}
+.gallery button:hover img{opacity:.85}
+
+/* Bookings */
+.book{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:48px}
+.book h3{font-size:clamp(28px,3.5vw,36px);line-height:1.15;font-weight:500;letter-spacing:-.02em}
+.book p{color:var(--text-2);margin-top:8px}
+.book .actions{margin-top:0}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:rgba(18,17,15,.94);opacity:0;pointer-events:none;transition:opacity 200ms var(--ease);cursor:zoom-out}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:12px}
+
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+@media (max-width:800px){
+  .wrap{padding:0 20px}
+  nav{display:none;position:absolute;top:64px;left:20px;right:20px;flex-direction:column;padding:8px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+  nav.open{display:flex}
+  .menu-btn{display:block}
+  .hero .wrap{padding-bottom:48px}
+  .hero::before{background:linear-gradient(180deg,rgba(22,21,19,.2) 20%,rgba(22,21,19,.85) 65%,var(--bg) 100%)}
+  .hero h1{font-size:56px}
+  .lede{font-size:18px;line-height:28px}
+  section{padding:64px 0}
+  .about,.studio{grid-template-columns:1fr;gap:32px}
+  .about p{font-size:18px;line-height:28px}
+  .gallery{columns:2;column-gap:8px}
+  .gallery button{margin-bottom:8px;border-radius:8px}
+  .studio img{min-height:280px;max-height:360px}
+  .studio{gap:0}
+  .studio-body,.book{padding:32px 24px}
+  footer .wrap{flex-direction:column;justify-content:center;gap:4px;height:auto;padding-top:20px;padding-bottom:20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" class="logo">Joy Ambassador</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav">
+      <a href="#about">About</a>
+      <a href="#studio">Studio</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#book">Bookings</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="kicker">Afrohouse · Afro · Amapiano</p>
+        <h1>Dj MakY</h1>
+        <p class="lede">Driven by warmth <em>and rhythm</em><span>A Cabo Verdean DJ based in Eindhoven</span></p>
+        <div class="actions">
+          <a class="btn primary" href="https://on.soundcloud.com/MAG9spwHhiIaPgoLdC" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a1 1 0 0 1-1-1v-6a9 9 0 0 1 18 0v6a1 1 0 0 1-1 1h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2"/></svg>
+            Listen on SoundCloud
+          </a>
+          <a class="btn secondary" href="#book">Book Dj MakY</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <img src="about.JPG" alt="Dj MakY looking over Lisbon at sunset" loading="lazy">
+      <div>
+        <div class="label"><span class="no">01</span><h2>About me</h2></div>
+        <p>I'm MakY, a DJ originally from Cabo Verde and based in Eindhoven. On the dance floor, I create a space where people feel free and connect, bringing positive vibes and energy.</p>
+        <ul class="meta">
+          <li>From <b>Cabo Verde</b></li>
+          <li>Based in <b>Eindhoven</b></li>
+          <li>Plays <b>Afrohouse, Afro, Amapiano</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio">
+    <div class="wrap">
+      <div class="label"><span class="no">02</span><h2>The studio</h2></div>
+      <div class="studio">
+        <img src="gallary8.JPG" alt="Dj MakY playing a set" loading="lazy">
+        <div class="studio-body">
+          <h3>Fresh from the decks</h3>
+          <p>Mixes and edits in Afrohouse, Afro and Amapiano. Press play and feel the joy.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://on.soundcloud.com/MAG9spwHhiIaPgoLdC" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a1 1 0 0 1-1-1v-6a9 9 0 0 1 18 0v6a1 1 0 0 1-1 1h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2"/></svg>
+              Listen on SoundCloud
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="label"><span class="no">03</span><h2>The vibes</h2></div>
+      <div class="gallery">
+        <button aria-label="Open photo 1"><img src="gallary1.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 2"><img src="gallary2.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 3"><img src="gallary3.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 4"><img src="gallary4.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 5"><img src="gallary5.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 6"><img src="gallary6.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 7"><img src="gallary7.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 8"><img src="gallary8.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 9"><img src="gallary9.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 10"><img src="gallary10.JPG" loading="lazy" alt="Dj MakY live"></button>
+        <button aria-label="Open photo 11"><img src="gallary11.jpg" loading="lazy" alt="Dj MakY live"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <div class="label"><span class="no">04</span><h2>Bookings</h2></div>
+      <div class="book">
+        <div>
+          <h3>Let's spread some joy</h3>
+          <p>Clubs, parties and events</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:mrcmoreira14@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            mrcmoreira14@gmail.com
+          </a>
+          <a class="btn secondary" href="https://www.instagram.com/its_dj_maky" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            @its_dj_maky
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Dj MakY · Joy Ambassador</span>
+    <span>Cabo Verde · Eindhoven</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Photo"><img id="lbimg" alt=""></div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lbimg');
+  function close(){lb.classList.remove('open')}
+  document.querySelectorAll('.gallery button').forEach(function(b){
+    b.addEventListener('click',function(){var i=b.querySelector('img');img.src=i.src;img.alt=i.alt;lb.classList.add('open')});
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+})();
+</script>
+</body>
+</html>
